@@ -41,6 +41,7 @@ Zorbus\TrafficBundle\Entity\Inbound:
         valid:
             type: boolean
             default: true
+            nullable: true
         created_at:
             type: datetime
             gedmo:

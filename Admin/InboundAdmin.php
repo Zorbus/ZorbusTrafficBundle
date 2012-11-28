@@ -45,7 +45,7 @@ class InboundAdmin extends Admin
                         ))
                 )
                 ->add('method', 'choice', array(
-                    'choices' => array('get' => 'GET', 'post' => 'POST', 'delete' => 'DELETE', 'put' => 'PUT', 'head' => 'HEAD'),
+                    'choices' => array('GET' => 'GET', 'POST' => 'POST', 'DELETE' => 'DELETE', 'PUT' => 'PUT', 'HEAD' => 'HEAD'),
                     'preferred_choices' => array('get', 'post')
                 ))
                 ->add('headers')
