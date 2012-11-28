@@ -1,8 +1,8 @@
 {
-    "name": "zorbus/article-bundle",
+    "name": "zorbus/traffic-bundle",
     "type": "symfony-bundle",
-    "description": "A Symfony2 Article bundle",
-    "keywords": ["doctrine", "orm", "bundle", "Symfony2"],
+    "description": "A Symfony2 Traffic bundle",
+    "keywords": ["doctrine", "orm", "bundle", "Symfony2", "traffic", "analytics"],
     "homepage": "https://github.com/Zorbus",
     "license": "MIT",
     "authors": [
@@ -25,9 +25,9 @@
         "doctrine/doctrine-migrations-bundle": "To alter database schema in a secure way"
     },
     "autoload": {
-        "psr-0": { "Zorbus\\ArticleBundle": "" }
+        "psr-0": { "Zorbus\\TrafficBundle": "" }
     },
-    "target-dir": "Zorbus/ArticleBundle",
+    "target-dir": "Zorbus/TrafficBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "0.0.*-dev"
