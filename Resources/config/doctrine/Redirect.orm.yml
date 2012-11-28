@@ -1,0 +1,38 @@
+Zorbus\TrafficBundle\Entity\Redirect:
+    type: entity
+    table: zorbus_traffic_redirect
+    repositoryClass: Zorbus\TrafficBundle\Entity\RedirectRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        url:
+            type: string
+            length: 255
+            nullable: false
+            unique: true
+        token:
+            type: string
+            length: 255
+            nullable: false
+        hits:
+            type: integer
+            default: 0
+            nullable: true
+        enabled:
+            type: boolean
+            default: true
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    lifecycleCallbacks:
+        prePersist: [addToken]

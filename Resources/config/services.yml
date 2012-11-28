@@ -1,0 +1,42 @@
+parameters:
+    zorbus_traffic.redirect.admin.class: Zorbus\TrafficBundle\Admin\RedirectAdmin
+    zorbus_traffic.inbound.admin.class: Zorbus\TrafficBundle\Admin\InboundAdmin
+    zorbus_traffic.outbound.admin.class: Zorbus\TrafficBundle\Admin\OutboundAdmin
+
+    zorbus_traffic.redirect.entity.class: Zorbus\TrafficBundle\Entity\Redirect
+    zorbus_traffic.inbound.entity.class: Zorbus\TrafficBundle\Entity\Inbound
+    zorbus_traffic.outbound.entity.class: Zorbus\TrafficBundle\Entity\Outbound
+
+    zorbus_traffic.redirect.controller.class: SonataAdminBundle:CRUD
+    zorbus_traffic.inbound.controller.class: SonataAdminBundle:CRUD
+    zorbus_traffic.outbound.controller.class: SonataAdminBundle:CRUD
+
+    zorbus_traffic.inbound.listener.class: Zorbus\TrafficBundle\EventListener\InboundListener
+
+services:
+    zorbus_traffic.redirect.admin:
+        class: %zorbus_traffic.redirect.admin.class%
+        arguments: [~, %zorbus_traffic.redirect.entity.class%, %zorbus_traffic.redirect.controller.class%]
+        calls:
+            - [setTranslationDomain, [ZorbusTrafficBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Traffic, label: Redirects }
+    zorbus_traffic.inbound.admin:
+        class: %zorbus_traffic.inbound.admin.class%
+        arguments: [~, %zorbus_traffic.inbound.entity.class%, %zorbus_traffic.inbound.controller.class%]
+        calls:
+            - [setTranslationDomain, [ZorbusTrafficBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Traffic, label: Inbounds }
+    zorbus_traffic.outbound.admin:
+        class: %zorbus_traffic.outbound.admin.class%
+        arguments: [~, %zorbus_traffic.outbound.entity.class%, %zorbus_traffic.outbound.controller.class%]
+        calls:
+            - [setTranslationDomain, [ZorbusTrafficBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Traffic, label: Outbounds }
+    zorbus_traffic.inbound.listener:
+        class: %zorbus_traffic.inbound.listener.class%
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

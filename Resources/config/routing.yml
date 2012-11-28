@@ -1,0 +1,3 @@
+zorbus_traffic_redirect:
+    pattern:  /redirect/{token}
+    defaults: { _controller: ZorbusTrafficBundle:Default:redirect }

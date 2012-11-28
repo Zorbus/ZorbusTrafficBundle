@@ -1,0 +1,53 @@
+Zorbus\TrafficBundle\Entity\Outbound:
+    type: entity
+    table: zorbus_traffic_outbound
+    repositoryClass: Zorbus\TrafficBundle\Entity\OutboundRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        ip:
+            type: string
+            length: 255
+            nullable: true
+        source_url:
+            type: string
+            length: 255
+            nullable: false
+        source_domain:
+            type: string
+            length: 255
+            nullable: false
+        target_url:
+            type: string
+            length: 255
+            nullable: false
+        target_domain:
+            type: string
+            length: 255
+            nullable: false
+        method:
+            type: string
+            length: 10
+            nullable: true
+        headers:
+            type: text
+            nullable: true
+        query:
+            type: string
+            length: 255
+            nullable: true
+        valid:
+            type: boolean
+            default: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
