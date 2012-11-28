@@ -26,7 +26,7 @@ class InboundListener
         $source = parse_url($referer);
 
         /* exclude links for same host so internal links won't be counted */
-        if (!$referer || $source || $request->getHost() == $source['host'])
+        if (!$referer || !$source || $request->getHost() == $source['host'])
         {
             return;
         }

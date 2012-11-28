@@ -73,6 +73,7 @@ class InboundAdmin extends Admin
                 ->add('source_domain')
                 ->add('target_url')
                 ->add('valid')
+                ->add('created_at')
         ;
     }
 
