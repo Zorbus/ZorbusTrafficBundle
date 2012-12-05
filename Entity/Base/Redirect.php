@@ -13,4 +13,9 @@ abstract class Redirect
     {
         return $this->getUrl();
     }
+    
+    public function getRedirectUrl()
+    {
+        return '/redirect/'.$this->getToken();
+    }
 }

@@ -44,7 +44,7 @@ class RedirectAdmin extends Admin
     {
         $listMapper
                 ->addIdentifier('url')
-                ->add('token')
+                ->add('redirectUrl')
                 ->add('hits')
                 ->add('enabled')
         ;
